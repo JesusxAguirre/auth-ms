@@ -4,11 +4,13 @@ import * as joi from 'joi';
 interface Envs {
   PORT: number;
   NATS_SERVER: string[];
+  JWT_SECRET: string;
 }
 const envsSchema = joi
   .object({
     PORT: joi.number().required(),
     NATS_SERVER: joi.array().items(joi.string()).required(),
+    JWT_SECRET: joi.string().required(),
   })
   .unknown(true);
 
